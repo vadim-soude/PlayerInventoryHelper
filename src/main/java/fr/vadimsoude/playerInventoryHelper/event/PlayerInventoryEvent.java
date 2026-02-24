@@ -21,6 +21,10 @@ public class PlayerInventoryEvent extends Event {
         return HANDLERS;
     }
 
+    public static HandlerList getHandlerList() {
+        return HANDLERS;
+    }
+
     public static class PlayerOpenInventoryEvent extends PlayerInventoryEvent {
         public PlayerOpenInventoryEvent(Player player) {
             super(player);
