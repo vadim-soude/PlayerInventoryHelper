@@ -1,0 +1,5 @@
+name: PlayerInventoryHelper
+version: '1.0-SNAPSHOT'
+main: fr.vadimsoude.playerInventoryHelper.PlayerInventoryHelper
+api-version: '1.18'
+authors: [ Reytz ]
