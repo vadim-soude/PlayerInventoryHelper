@@ -1,6 +1,7 @@
 package fr.vadimsoude.playerInventoryHelper.event;
 
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -13,11 +14,16 @@ public class PlayerInventoryEvent extends Event {
     private final Player player;
 
     public PlayerInventoryEvent(Player player) {
+        super(!Bukkit.isPrimaryThread());
         this.player = player;
     }
 
     @Override
     public @NotNull HandlerList getHandlers() {
+        return HANDLERS;
+    }
+
+    public static @NotNull HandlerList getHandlerList(){
         return HANDLERS;
     }
 
