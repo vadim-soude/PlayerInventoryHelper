@@ -39,7 +39,7 @@ public class PacketUtils {
         REMOVE_FAKE_RECIPE_PACKET = new WrapperPlayServerRecipeBookRemove(List.of(new RecipeDisplayId(fakeRecipeId)));
 
         Map<RecipeBookType, RecipeBookSettings.TypeState> settingsMap = new HashMap<>();
-        settingsMap.put(RecipeBookType.CRAFTING, new RecipeBookSettings.TypeState(true, true));
+        settingsMap.put(RecipeBookType.CRAFTING, new RecipeBookSettings.TypeState(true, false));
         OPEN_RECIPE_BOOK_PACKET = new WrapperPlayServerRecipeBookSettings(new RecipeBookSettings(settingsMap));
     }
 
