@@ -7,15 +7,18 @@ import fr.vadimsoude.playerInventoryHelper.listener.PacketEventListener;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@Getter
 public final class PlayerInventoryHelper extends JavaPlugin {
 
-    @Getter
     private PacketUtils packetUtils;
+    private boolean isFolia;
 
     @Override
     public void onEnable() {
 
         packetUtils = new PacketUtils();
+
+        isFolia = isFoliaEnv();
 
         PacketEvents.getAPI().getEventManager().registerListener(new PacketEventListener(this), PacketListenerPriority.NORMAL);
         this.getServer().getPluginManager().registerEvents(new BukkitListener(this), this);
@@ -27,4 +30,14 @@ public final class PlayerInventoryHelper extends JavaPlugin {
     public void onDisable() {
         this.getLogger().info("PlayerInventoryHelper has been enabled!");
     }
+
+    private static boolean isFoliaEnv() {
+        try {
+            Class.forName("io.papermc.paper.threadedregions.RegionizedServer");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
 }

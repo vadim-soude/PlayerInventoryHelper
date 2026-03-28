@@ -2,6 +2,7 @@ name: PlayerInventoryHelper
 version: '1.1'
 main: fr.vadimsoude.playerInventoryHelper.PlayerInventoryHelper
 api-version: '1.20.4'
+folia-supported: true
 authors: [ Reytz ]
 depend:
   - packetevents
