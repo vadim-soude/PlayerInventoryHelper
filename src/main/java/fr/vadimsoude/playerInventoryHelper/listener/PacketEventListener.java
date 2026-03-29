@@ -18,6 +18,7 @@ public record PacketEventListener(PlayerInventoryHelper plugin) implements Packe
         event.getUser().sendPacket(plugin.packetUtils().REMOVE_FAKE_RECIPE_PACKET);
 
         Player player = event.getPlayer();
+        plugin.playersWithPacketSent().remove(player.getUniqueId());
         new PlayerInventoryEvent.PlayerOpenInventoryEvent(player).callEvent();
     }
 }

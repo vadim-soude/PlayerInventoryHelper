@@ -7,11 +7,15 @@ import fr.vadimsoude.playerInventoryHelper.listener.PacketEventListener;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.UUID;
+import java.util.concurrent.ConcurrentSkipListSet;
+
 @Getter
 public final class PlayerInventoryHelper extends JavaPlugin {
 
     private PacketUtils packetUtils;
     private boolean isFolia;
+    private final ConcurrentSkipListSet<UUID> playersWithPacketSent = new ConcurrentSkipListSet<>();
 
     @Override
     public void onEnable() {
